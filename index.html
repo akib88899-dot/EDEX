@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Endless Glorious — গার্মেন্টস রপ্তানি ও অংশীদারিত্ব</title>
+<meta name="description" content="Endless Glorious Product & Service — বায়িং হাউস, গার্মেন্টস উৎপাদন ও রপ্তানি।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;600;800&family=Hind+Siliguri:wght@300;400;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo:#16253C;
+    --canvas:#E5E0D4;
+    --chalk:#6E9DC4;
+    --selvedge:#C0362C;
+    --muted:#8892A3;
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+
+  body{
+    margin:0;
+    min-height:100vh;
+    background:var(--indigo);
+    color:var(--canvas);
+    font-family:'Hind Siliguri',system-ui,sans-serif;
+    font-weight:300;
+    font-size:clamp(16px,.9vw + 13px,18px);
+    line-height:1.7;
+    display:flex;
+    flex-direction:column;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2{
+    font-family:'Anek Bangla',sans-serif;
+    font-weight:800;
+    line-height:1.18;
+    letter-spacing:-.015em;
+    margin:0;
+  }
+
+  .wrap{width:min(1100px,90vw);margin-inline:auto;}
+
+  header{border-bottom:2px dashed rgba(229,224,212,.2);}
+  header .wrap{padding:1.2rem 0;}
+  .brand b{
+    font-family:'Space Mono',monospace;
+    font-weight:700;font-size:.88rem;letter-spacing:.18em;text-transform:uppercase;
+    display:block;
+  }
+  .brand span{
+    font-family:'Space Mono',monospace;
+    font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--chalk);
+  }
+
+  main{flex:1;}
+  .split{display:grid;gap:3rem;padding:clamp(2.5rem,6vw,5rem) 0;}
+  @media(min-width:900px){
+    .split{grid-template-columns:1.05fr .95fr;gap:5rem;align-items:start;}
+  }
+
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--chalk);
+    display:flex;align-items:center;gap:.9rem;
+    margin:0 0 1.2rem;
+  }
+  .eyebrow::after{content:"";height:1px;flex:1;background:rgba(229,224,212,.22);}
+
+  h1{font-size:clamp(2.1rem,4.6vw,3.5rem);color:#fff;}
+  h1 u{text-decoration:none;border-bottom:5px solid var(--selvedge);padding-bottom:.05em;}
+  .lede{margin:1.5rem 0 0;max-width:52ch;color:#C3C8D0;}
+
+  .terms{
+    margin-top:2.2rem;padding-left:1.4rem;
+    border-left:3px solid var(--selvedge);
+    font-size:.94rem;color:#BFC6D1;
+  }
+  .terms b{color:#fff;font-family:'Anek Bangla',sans-serif;font-weight:600;}
+
+  .card{
+    background:rgba(255,255,255,.045);
+    border:2px dashed rgba(229,224,212,.22);
+    padding:clamp(1.6rem,3.5vw,2.4rem);
+  }
+  .card h2{font-size:1.45rem;color:#fff;margin-bottom:.5rem;}
+  .card .sub{margin:0 0 1.9rem;font-size:.92rem;color:var(--muted);}
+
+  .field{margin-bottom:1.35rem;}
+  .field label{
+    font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--chalk);display:block;margin-bottom:.4rem;
+  }
+  .field input,.field textarea{
+    width:100%;background:transparent;border:none;
+    border-bottom:1px solid rgba(229,224,212,.3);
+    color:var(--canvas);font-family:'Hind Siliguri',sans-serif;font-size:1rem;
+    padding:.5rem 0;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:#6B7688;}
+  .field textarea{resize:vertical;min-height:4.5rem;}
+  .field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--selvedge);}
+  .field .hint{font-size:.78rem;color:var(--muted);margin:.3rem 0 0;}
+  .field .err{font-size:.78rem;color:#E8918A;margin:.3rem 0 0;display:none;}
+  .field.invalid input{border-bottom-color:#E8918A;}
+  .field.invalid .err{display:block;}
+
+  .consent{
+    display:flex;gap:.75rem;align-items:flex-start;
+    margin:1.7rem 0 1.4rem;padding-top:1.3rem;
+    border-top:2px dashed rgba(229,224,212,.2);
+  }
+  .consent input{
+    appearance:none;width:1.1rem;height:1.1rem;flex:none;margin-top:.3rem;
+    border:1px solid rgba(229,224,212,.5);background:transparent;cursor:pointer;position:relative;
+  }
+  .consent input:checked{background:var(--selvedge);border-color:var(--selvedge);}
+  .consent input:checked::after{
+    content:"✓";position:absolute;inset:0;display:grid;place-content:center;
+    color:#fff;font-size:.78rem;font-weight:700;
+  }
+  .consent label{font-size:.85rem;line-height:1.6;color:#BFC6D1;cursor:pointer;}
+  .consent.invalid label{color:#E8918A;}
+
+  .btn{
+    width:100%;
+    font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;background:var(--selvedge);color:#fff;
+    border:1px solid var(--selvedge);padding:1rem 1.5rem;cursor:pointer;
+    transition:background .25s,color .25s;
+  }
+  .btn:hover{background:transparent;color:#E8918A;}
+  .btn[disabled]{opacity:.5;cursor:not-allowed;}
+  .fnote{font-size:.8rem;color:var(--muted);margin:.9rem 0 0;}
+
+  .done{display:none;text-align:center;padding:1.5rem 0;}
+  .done.show{display:block;}
+  .done h2{margin-bottom:.6rem;}
+  .done p{margin:0;color:#BFC6D1;font-size:.93rem;}
+  .hide{display:none;}
+
+  footer{border-top:2px dashed rgba(229,224,212,.2);padding:1.6rem 0 2rem;}
+  footer p{margin:0;font-size:.8rem;line-height:1.65;color:var(--muted);max-width:80ch;}
+  footer .contact-line{
+    font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.13em;
+    text-transform:uppercase;color:var(--chalk);margin-bottom:.7rem;
+  }
+
+  .fill{
+    background:repeating-linear-gradient(45deg,rgba(110,157,196,.2),rgba(110,157,196,.2) 5px,transparent 5px,transparent 11px);
+    border-bottom:1px dashed var(--chalk);
+    padding:.05em .3em;font-style:italic;
+  }
+
+  :focus-visible{outline:2px solid var(--chalk);outline-offset:3px;}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap brand">
+    <b>Endless Glorious</b>
+    <span>Product &amp; Service — Buying House</span>
+  </div>
+</header>
+
+<main>
+  <div class="wrap split">
+
+    <div>
+      <p class="eyebrow">বায়িং হাউস · উৎপাদন · রপ্তানি</p>
+      <h1>তৈরি পোশাক বিদেশে পাঠাই। এবার সেই ব্যবসার <u>অংশীদার</u> খুঁজছি।</h1>
+      <p class="lede">
+        আমরা বিদেশি ক্রেতার অর্ডার নিই, পোশাক উৎপাদন করাই, মান নিয়ন্ত্রণ করি
+        এবং শিপমেন্ট পর্যন্ত পুরো দায়িত্ব নিই। আয় আসে অর্ডারের কমিশন ও
+        রপ্তানি মার্জিন থেকে।
+      </p>
+      <div class="terms">
+        <b>ইকুইটি অংশীদারিত্ব</b> — মুনাফা ও লোকসান দুটোই চুক্তির অনুপাতে ভাগ হয়।
+        নির্দিষ্ট অঙ্কের নিশ্চিত মাসিক রিটার্নের কোনো প্রতিশ্রুতি আমরা দিই না।
+      </div>
+    </div>
+
+    <div class="card">
+      <div id="leadForm">
+        <h2>যোগাযোগের তথ্য দিন</h2>
+        <p class="sub">আমাদের একজন প্রতিনিধি আপনাকে ফোন করবেন।</p>
+
+        <div class="field" id="f-name">
+          <label for="nm">আপনার নাম *</label>
+          <input id="nm" type="text" autocomplete="name" required>
+          <p class="err">নাম লিখুন</p>
+        </div>
+
+        <div class="field" id="f-phone">
+          <label for="ph">মোবাইল নম্বর *</label>
+          <input id="ph" type="tel" inputmode="numeric" autocomplete="tel" placeholder="01XXXXXXXXX" required>
+          <p class="hint">১১ সংখ্যার বাংলাদেশি নম্বর</p>
+          <p class="err">সঠিক ১১ সংখ্যার নম্বর লিখুন</p>
+        </div>
+
+        <div class="field" id="f-area">
+          <label for="ad">ঠিকানা / এলাকা</label>
+          <input id="ad" type="text" autocomplete="address-level2" placeholder="যেমন: উত্তরা, ঢাকা">
+        </div>
+
+        <div class="field">
+          <label for="ms">যা জানতে চান</label>
+          <textarea id="ms" rows="2" placeholder="ঐচ্ছিক"></textarea>
+        </div>
+
+        <div class="consent" id="f-consent">
+          <input id="cs" type="checkbox" required>
+          <label for="cs">আমার দেওয়া তথ্য শুধুমাত্র যোগাযোগের জন্য ব্যবহার করা হবে — আমি সম্মত।</label>
+        </div>
+
+        <button class="btn" type="button" id="submitBtn">তথ্য পাঠান</button>
+        <p class="fnote">এই ধাপে কোনো টাকা লেনদেন হয় না।</p>
+      </div>
+
+      <div class="done" id="doneBox" role="status" aria-live="polite">
+        <h2>তথ্য পৌঁছেছে</h2>
+        <p>আমাদের প্রতিনিধি ২ কর্মদিবসের মধ্যে ফোন করবেন।</p>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="contact-line">
+      ইমেইল edex.eglorious@gmail.com · ফোন <span class="fill">নম্বর</span> · ট্রেড লাইসেন্স <span class="fill">নম্বর</span>
+    </p>
+    <p>
+      ব্যবসায় বিনিয়োগে ঝুঁকি রয়েছে এবং মূলধনের ক্ষতি হতে পারে।
+      Endless Glorious Product &amp; Service কোনো ব্যাংক বা আমানত গ্রহণকারী প্রতিষ্ঠান নয়।
+      এখানে কোনো নিশ্চিত রিটার্ন বা মূলধন সুরক্ষার প্রতিশ্রুতি দেওয়া হচ্ছে না।
+      চুক্তির আগে আইনজীবীর পরামর্শ নিন।
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // লিড এই ইমেইলে যাবে — বদলাতে চাইলে শুধু নিচের ঠিকানাটা বদলান
+  const ENDPOINT = "https://formsubmit.co/ajax/edex.eglorious@gmail.com";
+
+  const form = document.getElementById("leadForm");
+  const doneBox = document.getElementById("doneBox");
+  const btn = document.getElementById("submitBtn");
+  const nameEl = document.getElementById("nm");
+  const phoneEl = document.getElementById("ph");
+  const addrEl = document.getElementById("ad");
+  const msgEl = document.getElementById("ms");
+  const csEl = document.getElementById("cs");
+
+  const toEn = s => s.replace(/[০-৯]/g, d => "০১২৩৪৫৬৭৮৯".indexOf(d));
+
+  function validate() {
+    const okName = nameEl.value.trim().length >= 2;
+    document.getElementById("f-name").classList.toggle("invalid", !okName);
+
+    const digits = toEn(phoneEl.value).replace(/\D/g, "");
+    const okPhone = /^01[3-9]\d{8}$/.test(digits);
+    document.getElementById("f-phone").classList.toggle("invalid", !okPhone);
+
+    const okCs = csEl.checked;
+    document.getElementById("f-consent").classList.toggle("invalid", !okCs);
+
+    return okName && okPhone && okCs;
+  }
+
+  [nameEl, phoneEl].forEach(el =>
+    el.addEventListener("input", () => el.closest(".field").classList.remove("invalid"))
+  );
+  csEl.addEventListener("change", () =>
+    document.getElementById("f-consent").classList.remove("invalid")
+  );
+
+  btn.addEventListener("click", async () => {
+    if (!validate()) {
+      const bad = document.querySelector(".invalid input");
+      if (bad) bad.focus();
+      return;
+    }
+
+    const phone = toEn(phoneEl.value).replace(/\D/g, "");
+
+    const payload = {
+      "নাম": nameEl.value.trim(),
+      "মোবাইল": phone,
+      "ঠিকানা": addrEl.value.trim() || "—",
+      "বার্তা": msgEl.value.trim() || "—",
+      _subject: "নতুন লিড — " + nameEl.value.trim() + " (" + phone + ")",
+      _template: "table",
+      _captcha: "false"
+    };
+
+    btn.disabled = true;
+    btn.textContent = "পাঠানো হচ্ছে…";
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error("bad response");
+
+      form.classList.add("hide");
+      doneBox.classList.add("show");
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = "আবার চেষ্টা করুন";
+      let n = document.getElementById("sendErr");
+      if (!n) {
+        n = document.createElement("p");
+        n.id = "sendErr";
+        n.className = "fnote";
+        n.style.color = "#E8918A";
+        btn.insertAdjacentElement("afterend", n);
+      }
+      n.textContent = "পাঠানো যায়নি। ইন্টারনেট সংযোগ দেখে আবার চেষ্টা করুন।";
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
